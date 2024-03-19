@@ -27,6 +27,7 @@ In the scope of this system, Farmbot is humanity's open-source CNC farming machi
     \item The web and mobile application allows users to control the garden remotely, and configure or update the software of Raspberry Pi computers without any need for hardware change.
     \item The farm designer and sequence editors allow users to lay out their plants with built-in data for plants, creating optimal layouts each season, and taking care of their plants in the way they want without requiring any coding.
     \item The farmbot software development allows professionals to modify and use it for any purpose (e.g. education, business) in hardware tools or develop completely new versions of the farmbot based on the existing library of components.
+
 \end{itemize}
 
 \section{System Overview}
@@ -51,26 +52,26 @@ Refer to \textit{(Clause 9.6.4, 9.5.4.1)}
 \subsubsection{System Interfaces}
 
 \begin{itemize}
+
     \item \textbf{Monitoring System:} In the FarmBot Express, the camera is provided within the kit. The kit is connected to Raspberry Pi through a USB cable or serial connection. The monitoring system receives data from the camera and using built-in computer vision functions, it detects the weeds and layout of the garden in general. According to the status of the garden, it takes actions autonomously or alerts the customer through the web application using the MQTT Gateway service. Moreover, it provides a real-time view or image-capturing from recorded data.
-    
+
     \item \textbf{Arduino Firmware System:} The system consists of two subsystems named Mechanical Control System and Sensor Management System. The firmware that is flashed onto the Arduino or Farmduino microcontroller is responsible for physically operating FarmBot’s motors, tools, sensors, and other electronics. It receives G and F codes from FarmBot OS, and then moves the motors and reads and writes pins accordingly. It also sends collected data from the rotary encoders and pin reads back to the Raspberry Pi. The processed data returns as a command from the main system to position tool heads to set light, sow weeds, and water plants.
 
     \item \textbf{Mechanical Control System:} This system is primarily constructed from V-slot aluminium extrusions and aluminium plates and brackets. They are driven by four NEMA 17 stepper motors, the Farmduino Express microcontroller, and a Raspberry Pi Zero 2 W computer.
     The bots roll directly on the wood-raised bed. FarmBot Express features a three-in-one tool head and does not require any additional precision tool. The gantry allows the tool head to be moved in the X-direction and serves as a guide for the Y and Z directions. The gantry also supports the structure for mounting the electronics box and seed troughs.
-    
+
     \item \textbf{Sensor Management System:} This system has soil moisture, temperature, light, pH, humidity, and weather sensors. The abrupt measurements are sent to the Farmduino Express microcontroller. The firmware and Raspberry Pi computers process data and take actions autonomously
     or if it requires further investigation, it sends messages to the web server.
 
     \item \textbf{Web Application:} This system allows users to control and configure their FarmBot from most electronic devices. It does not require installation since it is a web-based application. The core features include the farm designer, event scheduler, sequence editor, regimen editor, controls, management of FarmBot's tools and seed containers, management of FarmBot's settings, storage and viewing of logs and sensor readings. Moreover, the application cloud is connected to the crop database.
 
     \item \textbf{Database Management System:} This system serves as a comprehensive repository of information about botanics and personal gardens. The general built-in data details are planting information, growing requirements, watering needs, nutritional needs, companion planting, pest and disease management, and harvesting and maintenance. Overall, the crop database is a valuable resource for users, so that they do not have to search for plants or to be experts.
-    
+
 \end{itemize}
 
+
 \subsubsection{User Interfaces}
-<<<<<<< Updated upstream
-Refer to \textit{(Clause 9.6.4.2)}
-=======
+
 
 FarmBot Express users and IT staff interact with the system primarily through a web-based application accessible via computer and mobile device browsers. The interface facilitates various functionalities essential for managing and monitoring farm operations. Furthermore; embedded operating system of the FarmBot Express is also available as open-source code. So a customer or an IT member can access the operating system code and configure the embedded system of the FarmBot Express by using means of embedded microcontroller chip. The following parts constitute the user interface:
 
@@ -103,11 +104,6 @@ FarmBot Express users and IT staff interact with the system primarily through a 
 \end{itemize}
 	
 
-
-
-
-
->>>>>>> Stashed changes
 \subsubsection{Hardware Interfaces}
 
 The system requires a borescope camera, Raspberry Pi computer, Farmduino, several sensors, four motors, rotary encoders, Vacuum Pump, audio jack, micro SD Card, Wi-Fi radio antenna, Ethernet connector, several USB cables, UTM cable, power supply, LED light strip, water solenoid valve and the universal tool mount. The camera supports advanced computer vision technologies. The Raspberry Pi computer, Farmduino and many mechanical devices are usually connected through USB cables. To receive data and send commands, the vacuum pump, water solenoid valve, encoders, motors, and light strip are integrated into the Raspberry Pi. Another hardware requirement is an electronic device that has a connection to the web server. Hence the Ethernet connector or the Wi-fi radio antenna must be implemented into the Farmduino firmware. Overall, the Raspberry Pi serves as a communication node between the Web App and the Farmduino via message broker, MQTT gateway. This communication allows Raspberry Pi to get instructions, customary configurations, and modifications manually from the web app to the Farmduino and hence to other hardware products.
@@ -135,7 +131,49 @@ The communication protocol between FarmBot Express and the web application is es
 The system's application is web-based, therefore there is no requirement to have storage in the user's device. On the other hand, the Farmbot Express is a microcontroller after all, hence it has built-in preserved area storage for program and data memories. Hence there is a memory constraint to keep webcam images, recordings, and data of several sensors. The data should be sent to web cloud services before overwriting. Moreover, it is an open-source system, hence the functions, OS and more can be configured by customers which affects the preserved program memory. 
 
 \subsubsection{Operations}
-Refer to \textit{(Clause 9.6.4.7)}
+
+The operations of the Farmbot Express system can be partitioned into: \\
+\textbf{User-Initiated Operations:}
+\begin{itemize}
+    \item Customising garden
+    \item Planting the garden
+    \item Mounting and dismounting tools
+    \item Measuring soil moisture
+    \item Performing actions on many plants
+    \item Using Farmbot's buttons
+    \item Scanning the garden for weeds
+    \item Using the rotary tool
+\end{itemize}
+
+
+\textbf{Periods of Interactive Operations and Periods of Unattended Operations:}
+\begin{itemize}
+    \item Optimised Events
+    \item Automated Planting Schedule
+    \item Scheduled Sowing
+    \item Scheduled Watering
+    \item Real-time Viewing 
+    \item Capturing Images
+    \item Connecting Farmbot to the Internet
+    \item Connecting Farmbot to the Web App
+\end{itemize}
+
+
+\textbf{Data Processing Support Functions}
+\begin{itemize}
+    \item Sensor Data Analysis
+    \item Image Processing
+    \item Logging
+    \item Rotary Encoder Data Analysis
+    \item Wi-fi and Web App credentials configuration
+\end{itemize}
+
+
+\textbf{Backup and Recovery Functions}
+\begin{itemize}
+    \item 
+\end{itemize}
+
 
 \subsection{System Functions}
 
@@ -154,7 +192,31 @@ Refer to \textit{(Clause 9.6.6, 9.5.4.3, 9.4.5)}
 
 \subsection{Limitations}
 
-Refer to \textit{(Clause 9.6.7)}
+\begin{itemize}
+    \item \textbf{Regulatory Policies:} The system's web app holds personal information, like name, email address, telephone number or credit card to store with the account. Moreover, it collects all FarmBot web application data (e.g. photos, garden layout, weeds), device, log, location pieces of information, and local storage. Hence the system must hold data as encrypted.
+
+    \item \textbf{Hardware Limitations:} The system is kept all day and night outside with the rain, sun, bugs, birds, dirt and different temperatures. Hence, it is suggested to inspect the hardware for loose screws, visible damage such as corrosion, bending, or cracking of components every three months. These are important to receive and process the correct image, sensor, and encoder data to send to the cloud and apply built-in or customary instructions.
+
+    \item \textbf{Interfaces to other applications:} FarmBot Express must be compatible with web app services, Arduino firmware system, and monitoring system. Furthermore, the operating system and version of the customer's device must be compatible with FarmBot Express.
+
+    \item \textbf{Parallel Operation:} FarmBot Express is a standalone system controlled by a web app registered by a particular account. Hence parallel operation is not required.
+
+    \item \textbf{Audit Functions:} The system is an open-source, hence it can be configured by IT staff or customers. However, the inventory of weeds, water and the maintenance of the Arduino firmware system and the system's hardware shall be checked manually in person.
+
+    \item \textbf{Control Functions:} The system has built-in advanced control-automation technologies. However, it is an open-source project and the user can customise and configure the system freely.
+
+    \item \textbf{Higher-order Language Requirements:} The system and its Farmduino system are written in microprocessor-specific assembly. The system's firmware can be configured with C++, and its web app is written with Ruby on Rails, ReactJS, and TypeScript.
+
+    \item \textbf{Signal Handshake Protocols:} The communication protocol between the FarmBot Express and its web services is satisfied by MQTT Gateway.
+
+    \item \textbf{Quality Requirements:} The maintenance of the hardware, robots, bed, and sensors shall be checked physically regularly.
+
+    \item \textbf{Criticality of the application:} The system is a single unit used by specific people. Hence the failure of the machine affects only one user.
+
+    \item \textbf{Safety and security considerations:} The system's web app stores personal data. Hence the IT Staff shall check security regularly.
+
+    \item \textbf{Physical/Mental considerations:} The system's web application does not require any coding and is easy to use. The built-in crop database provides information about Botanics and there is no physical action required after assembling the FarmBot Express. Hence physically disabled, young or old, expert or not expert, anyone can use it. 
+\end{itemize}
 
 \section{Definitions}
 
