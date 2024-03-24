@@ -20,16 +20,92 @@ Key data objects (persistent or not) and their major attributes. Draw the \textb
 Refer to \textit{(Clause 9.6.15)}.
 
 \section{Design Constraints}
-Specify constraints on the system design imposed by external factors, such as official standards, regulatory requirements, or organizational/managerial limitations.\\ Refer to \textit{(Clause 9.6.16)}.
+\begin{itemize}
+\item \textbf{Environmental Regulations:}  FarmBot Express is designed for agricultural applications, including the cultivation of edible plants. Therefore; one important rule FarmBot hardware must follow is about not using harmful materials. This helps protect people and the environment from dangerous substances. This way, FarmBot can be safe for farmers to use and prevent harmful chemicals from getting eat or getting into the soil or water. The ecological footprint shall be kept as small as possible.
+\item \textbf{Safety Standards: }The design must comply with safety standards, ensuring the safety of operators, bystanders, and the environment. This includes features like emergency stop mechanisms, collision avoidance, and fail-safe operation.
+\item \textbf{Resource Constraints:} There are constraints which are rooted from the resources that potential users have, such as availability of skilled personnel who can manage hardware, and technological infrastructure which is required for system deployment such as electricity and wifi.
+\item \textbf{Energy Efficiency:} FarmBot shall be designed with energy efficiency in mind, utilizing low-power components and optimizing algorithms to minimize energy consumption during operation.
+\item \textbf{Affordability and Accessibility:} If FarmBot is intended for small-scale or resource-constrained farmers, the system shall be affordable and accessible, with consideration for cost-effective design solutions.
+\end{itemize}
+
 
 \section{System Quality Attributes}
-Important quality attributes (Usability \textit{(Clause 9.6.13, 9.5.6)}, Performance \textit{(Clause 9.6.14, 9.5.7)}, Dependability properties, Maintainability, and so on) in the order of priority with associated requirements.
 
-Refer to \textit{(Clause 9.6.18)}.
+\subsection{Usability Requirements}
+\begin{itemize}
+	\item \textbf{Requirement 2:} FarmBot Express shall precisely use the tools, keeping sensitivity and needs of crops and soil in mind. For example, it shall precisely dispense water to crops, ensuring enough coverage and adequate (neither more nor less) hydration for their health.
+	\item \textbf{Requirement 3: } FarmBot shall adjust its actions dynamically to accommodate variations in sensor data. Therefore; it can meet the needs of crops and weeds more accurately.
+	\item \textbf{Requirement 4:} FarmBot Express shall follow commands given by the user in sequences, executing tasks according to the specified sequence without any deviation or interruption in normal circumstances (except user interruption or emergency stop).
+	\item \textbf{Requirement 7:}  FarmBot Express shall generate and transmit logs to the user interface upon completion of each job or command, providing detailed information about the executed tasks.
+	\item \textbf{Requirement 8:} FarmBot shall provide feedback on task completion status, indicating when each task is initiated, in progress, or successfully completed.
+	\item \textbf{Requirement 9:} The system shall provide intuitive user interface for both novice and experienced users. It should be kept in mind that users may be people who are far from technology.
+	\item \textbf{Requirement 10:} The system shall support multiple languages for user interfaces to cater to international users.
+	\item \textbf {Requirement 11:} The system shall minimize training length by presenting information in a clear and organized manner.
+	\item \textbf {Requirement 12:} Users shall be able to customize settings and preferences to tailor the system to their needs.
+	\item \textbf{Requirement 27:} Clear documentation, including user manuals, shall be provided to assist users  in troubleshooting and customization. This simplifies user training.
+	\item \textbf{Requirement 34:} Peripherals of the FarmBot Express shall be readily available from authorized vendors or through an official supply chain to minimize effort to find them.
+	\item \textbf{Requirement 35:} The hardware design shall incorporate fault-tolerant mechanisms to mitigate the impact of component failures. Fault tolerance is important as the hardware works outside and stays in harsh conditions when necessary.
+	\item \textbf{Requirement 40:} The hardware interfaces, including buttons and switches, shall be ergonomically designed and labeled clearly for intuitive operation by users. Replicates of the hardware interfaces shall be shown in user interface if necessary.
+	\item \textbf{Requirement 42:} The hardware assembly shall be designed to minimize sharp edges or protrusions that could cause injury to users during installation or maintenance. This requirement also prevents animals and plants from being injured.
+	\item \textbf{Requirement 51: } FarmBot shall detect and alert users to any errors or deviations from expected task outcomes such as rotary tool stall.
+	\item \textbf{Requirement 52: } FarmBot shall provide clear and comprehensible error handling messages or feedback, preferably including suggestions and solutions, to assist users in resolving issues efficiently and resuming operations.
+\end{itemize}
 
+	
+\subsection{Performance Requirements}
+\begin{itemize}
+	\item \textbf{Requirement 1:} FarmBot Express shall accurately move to locations at specified coordinations within a tolerance of ±1mm (the difference between two coordination points).
+	\item \textbf{Requirement 5:} FarmBot Express shall execute scheduled tasks, such as watering crops, at the specified times with a deviation tolerance of no more than ±1 minute from the scheduled time.
+	\item \textbf{Requirement 6:} FarmBot Express shall repeat specified tasks, such as removing weeds, the designated number of times as instructed by the user, with no tolerance.
+	\item \textbf {Requirement 13:} The system shall support a full garden configuration with crops, weeds and points simultaneously without degradation of performance. The grid of the FarmBot Express is 1.2 meters to 3 meters. So it can hold maximum of around 100 plants.
+	\item \textbf {Requirement 14:} Response time of the system shall be less than 1 seconds under normal connection conditions. It is important for critical functions such as emergency stop.
+	\item \textbf {Requirement 15:} The system shall accurately identify the crops and weeds grown in the garden. Therefore: more appropriate maintenance can be performed and unwanted losses can be prevented.
+	\item \textbf{Requirement 43:} The webcam shall provide high-resolution images to allow FarmBot to process images, detect crops and weeds, and differantiate plants. Additioanlly; this allows to monitor their garden remotely.
+	\item \textbf{Requirement 44:}The webcam shall have adjustable angles and calibration settings to provide users with clear views of the farming environment.
+	\item \textbf{Requirement 45:} Sensors integrated into FarmBot Express shall provide accurate measurements within a reasonable tolerance of the actual value under normal operating conditions Accurate sensor measurements are essential for precise control of agricultural parameters such as soil moisture.
+\end{itemize}
+
+\subsection{Reliability Requirements}
+\begin{itemize}
+	\item \textbf {Requirement 16:} The system shall efficiently manage memory and system resources of its embedded hardware to prevent system crashes.
+	\item \textbf{Requirement 17:} The system shall have a mean time between failures (MTBF) of at least 336 hours (2 weeks). This requirement aims to ensure the system's reliability during extended periods of operation without supervision, such as during holidays, covering approximately 90 percent of typical holiday durations.
+	\item \textbf{Requirement 25:} Communication between the user interface and hardware of FarmBot shall be seamless, even in harsh conditions. Any connection loss or data loss during transactions shall be promptly reported to the user to ensure accurate work.This requirement ensures correct operation and accuracy of FarmBot.
+\end{itemize}
+
+\subsection{Availibility Requirements}
+\begin{itemize}
+	\item \textbf{Requirement 20}: The user interface shall guarantee 98\% uptime excluding scheduled maintenance windows. Because user interface is crucial for FarmBot Express to implement its regular tasks.
+	\item \textbf{Requirement 36:} The FarmBot Express system shall require the presence of trained maintenance staff available for on-site assistance and support.
+\end{itemize}
+
+\subsection{Security Requirements}
+\begin{itemize}
+	\item \textbf{Requirement 21:} User authentication shall be enforced for accessing sensitive functionalities or data. This protects the user garden from external threats.
+	\item \textbf{Requirement 22:} Passwords shall be securely stored using encryption techniques to prevent unauthorized access. This protexts the user gard from externak threats.
+	\item \textbf{Requirement 23:} The system shall implement emergency actions to prevent hazards during hardware operations. This requirement is critical to ensure the safety of personnel, crops, animals and the environment.
+	\item \textbf{Requirement 24:} The system shall log and audit user activities, including login attempts, command executions, and configuration changes, for security monitoring and forensic analysis.
+\end{itemize}
+
+\subsection{Maintability Requirements}
+\begin{itemize}
+	\item \textbf{Requirement 26:} The FarmBot web application code and operating system code shall be modularized and well-documented to facilitate easy maintenance and future enhancements. This speeds up the development and update process of the system.
+	\item \textbf{Requirement 27:} Clear documentation, including technical guides, shall be provided to developers in troubleshooting and development. This simplifies troubleshooting and development.
+	\item \textbf{Requirement 28:} The hardware components shall be modularized to allow for easy replacement and upgrades without requiring extensive disassembly. This makes the moving and shipping processes safer.
+	\item \textbf{Requirement 29:} Dependency of the modules to other modules of the embedded system shall be as small as possible, allowing for independent testing and maintenance.
+	\item \textbf{Requirement 30:} Standard components shall be preferred in the hardware design to facilitate easy replacement and availability.
+	\item \textbf {Requirement 31:} Comprehensive documentation shall be provided for all hardware components, including specifications, schematics, and assembly instructions.
+	\item \textbf{Requirement 33: } Critical hardware components such as motors and sensors shall be designed for easy replacement by end-users, with minimal tools and technical expertise required.
+		\item \textbf{Requirement 50} The FarmBot Express system shall be designed for easy disassamble to accommodate changes in farm layout. As farm layout may wear out or be damaged easily, faster re-assamble provides convenience.
+\end{itemize}
+
+\subsection{Portability Requirements}
+\begin{itemize}
+		\item \textbf{Requirement 32:}  The assembly of FarmBot Express shall be designed to be easy and require a minimal number of tools .This requirement aims to reduce the time, effort and number of tools required for assembly.
+		\item \textbf{Requirement 39:} The FarmBot interface shall be responsive and adaptive, providing consistent user experiences across various screen sizes and resolutions. This is important to provide a user interface available from different devices.
+		\item \textbf {Requirement 38:} The system shall support standard communication protocols, such as MQTT or RESTful APIs, to enable interoperability with third-party devices and services.
+		\item \textbf{Requirement 39:} Installation and update procedures shall be automated (if possible) and well-documented to simplify deployment on different platforms and systems.
+		\item \textbf{Requirement 48:} The webcam integrated into FarmBot Express must be designed to be replaceable, allowing for easy upgradeability of the system.As technology evolves, there may arise the need to upgrade the webcam component of FarmBot Express to take advantage of improved camera capabilities.
+\end{itemize}
 
 \section{Supporting Information}
-
-Refer to \textit{(Clause 9.6.20)}
-
-
+Despite the many functionalities it offers, FarmBot's main purpose is not large-scale agriculture.The initiative to introduce the FarmBot technology aims to increase interest in gardening and plant cultivation. Having a Farmbot would enable groups to increase interest in the idea of gardening and raising plants in a number of ways. Through gamification students would learn the best way to place plants and discover the needs of plants and how to observe and check on those needs. Additionally the Farmbot would give the opportunity to teach additional skills such as robotics and computer programming. Users, particularly students, can learn fundamental principles of robotics and automation by programming FarmBot to perform specific tasks such as planting, watering, and harvesting.
